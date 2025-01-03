@@ -1,17 +1,21 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Node 20",
-    "_version": "20.1.0",
-  
-    "compilerOptions": {
-      "lib": ["es2023"],
-      "module": "node16",
-      "target": "es2022",
-  
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "moduleResolution": "node16"
-    }
-  }
-  
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 20",
+  "_version": "20.1.0",
+
+  "compilerOptions": {
+    "lib": ["es2023"],
+    "module": "node16",
+    "target": "es2022",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node16",
+
+    "outDir": "./dist", // Diretório de saída
+    "rootDir": "./src" // Diretório raiz dos arquivos TypeScript
+  },
+  "include": ["src/**/*"], // Inclui todos os arquivos na pasta src
+  "exclude": ["node_modules"] // Exclui node_modules
+}
