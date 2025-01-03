@@ -8,9 +8,9 @@ import {
 } from "fastify-type-provider-zod";
 import { fastifySwagger } from "@fastify/swagger";
 import { fastifySwaggerUi } from "@fastify/swagger-ui";
-import { routes } from "./routes/routes";
+import { routes } from "./routes";
 
-const app = fastify().withTypeProvider<ZodTypeProvider>();
+const app = fastify({ logger: true }).withTypeProvider<ZodTypeProvider>();
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
@@ -37,4 +37,9 @@ app.register(routes);
 
 app.listen({ port: 4000, host: "0.0.0.0" }).then(() => {
   console.log("Servico rodando com sucesso na porta 4000");
+});
+
+app.listen({ port: 4000, host: "0.0.0.0" }).catch((err) => {
+  app.log.error(err);
+  process.exit(1);
 });
